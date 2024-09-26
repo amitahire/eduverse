@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eduVerse: Learning Without Limits</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        header {
+            background: var(--secondary-color);
+            color: #ffffff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            background-image: url('./img/converted_image_1.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding-top: 60px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+        }
+        .hero-content h2,
+        .hero-content p {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .feature {
+            flex-basis: 30%;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .feature-image-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .feature-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #ffffff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        footer {
+            background: var(--secondary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        
+        #about {
+            text-align: left;
+        }
+        
+        #about h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            height: 80%;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>eduVerse</h1>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Learning Without Limits</h2>
+            <p>Experience the future of education in our immersive metaverse</p>
+            <a href="#" class="cta-button" onclick="openModal()">Join the Waitlist</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <h3>Our Vision</h3>
+            <p>At eduVerse, we are redefining the boundaries of digital transformation. Specializing in Extended Reality (XR), our team integrates the latest advancements in 3D data visualization, AR/VR ecosystems, and Generative AI to create transformative, interactive experiences. Whether it's developing cutting-edge AR tracking solutions, scaling complex distributed systems, or pushing the limits of real-time rendering, we are passionate about merging technology with creativity to shape the future.</p>
+            
+            <h3>Our Expertise</h3>
+            <p>Founded by industry professionals with extensive experience, we bring a wealth of knowledge from leading roles in AR/VR development, real-time rendering, and distributed system architecture. Our team has a track record of delivering high-performance AR/VR solutions, collaborating with industry leaders, and engineering innovative products used globally.</p>
+            
+            <p>Our approach combines deep technical expertise with a commitment to innovation, creating impactful solutions that drive the future of immersive experiences across industries.</p>
+        </section>
+
+        <section id="features" class="section">
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-image-container">
+                        <img src="https://img.icons8.com/color/96/000000/virtual-reality.png" alt="VR Icon" class="feature-icon">
+                        <img src="./img/converted_image_1.jpeg"" alt="Immersive 3D Learning" class="feature-image">
+                    </div>
+                    <h3>Immersive 3D Learning</h3>
+                    <p>Engage with interactive 3D environments that bring learning to life.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-image-container">
+                        <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AI Icon" class="feature-icon">
+                        <img src="./img/converted_image_2.jpeg" alt="Adaptive AI Content" class="feature-image">
+                    </div>
+                    <h3>Adaptive AI Content</h3>
+                    <p>Experience personalized learning powered by advanced AI algorithms.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-image-container">
+                        <img src="https://img.icons8.com/color/96/000000/conference-call.png" alt="Collaboration Icon" class="feature-icon">
+                        <img src="./img/converted_image_3.jpeg" alt="Real-time Collaboration" class="feature-image">
+                    </div>
+                    <h3>Real-time Collaboration</h3>
+                    <p>Connect and learn with peers from around the globe in real-time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Get in Touch</h2>
+            <p>If you're interested in cutting-edge AR/VR solutions, immersive environments, or want to explore how we can bring your next project to life using 3D data integration and Generative AI, reach out to us.</p>
+            
+            <p>We are here to help with all inquiries related to XR technologies, 3D rendering, and immersive experiences.</p>
+            <a href="#" class="cta-button" onclick="openModal()">Join the Waitlist</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 eduVerse. All rights reserved.</p>
+    </footer>
+
+    <div id="waitlistModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfARpa6yBOZqPq4yV1J9UX7EZ6OBNLz4bSv54q8V4Ljp1-QBg/viewform?embedded=true" width="640" height="941" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('waitlistModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('waitlistModal').style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById('waitlistModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
